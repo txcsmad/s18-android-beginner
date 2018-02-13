@@ -7,3 +7,6 @@
 /build
 /captures
 .externalNativeBuild
+
+**/markdown-navigator
+**/markdown-navigator.xml
