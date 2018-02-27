@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:context="ahn.spring2018.DiceActivity">
+
+    <TextView
+        android:id="@+id/tv_player1_indicator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="4dp"
+        android:text="Player 1:"
+        android:textColor="#455a64"
+        android:textStyle="bold"/>
+
+    <TextView android:id="@+id/tv_player1_score"
+        android:layout_width="48dp"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@id/tv_player1_indicator"
+        android:layout_toEndOf="@id/tv_player1_indicator"
+        android:gravity="center"
+        android:text="000"/>
+
+    <TextView
+        android:id="@+id/tv_player2_indicator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toLeftOf="@id/tv_player2_score"
+        android:padding="4dp"
+        android:text="Player 2:"
+        android:textColor="#455a64"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:id="@+id/tv_player2_score"
+        android:layout_width="48dp"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@id/tv_player2_indicator"
+        android:layout_alignParentEnd="true"
+        android:gravity="center"
+        android:text="000"/>
+
+    <TextView
+        android:id="@+id/tv_current_player"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/image_view"
+        android:layout_centerHorizontal="true"
+        android:text="No Active Player"/>
+
+    <ImageView
+        android:id="@+id/image_view"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:layout_centerInParent="true"
+        android:src="@drawable/dice1"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/image_view"
+        android:gravity="center">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toLeftOf="@id/tv_player2_score"
+            android:padding="4dp"
+            android:text="Round Score:"
+            android:textColor="#455a64"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/tv_round_score"
+            android:layout_width="48dp"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@id/tv_player2_indicator"
+            android:layout_alignParentEnd="true"
+            android:gravity="center"
+            android:text="000"/>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal">
+
+        <Button android:id="@+id/btn_hold"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:onClick="holdScore"
+            android:text="Hold"/>
+
+        <Button android:id="@+id/btn_roll"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:onClick="rollDice"
+            android:text="Roll"
+            />
+
+        <Button android:id="@+id/btn_reset"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:onClick="resetGame"
+            android:text="Reset"/>
+
+    </LinearLayout>
+
+</RelativeLayout>

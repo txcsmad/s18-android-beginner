@@ -4,12 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context="ahn.spring2018.MainActivity">
+    tools:context="ahn.spring2018.ScheduleActivity">
 
-    <ListView android:id="@+id/list_apps"
+    <ListView android:id="@+id/list_schedule"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:listitem="@android:layout/simple_list_item_1"/>
+        android:layout_height="match_parent"/>
 
 </LinearLayout>
