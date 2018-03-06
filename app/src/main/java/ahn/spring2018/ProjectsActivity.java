@@ -24,6 +24,7 @@ public class ProjectsActivity extends AppCompatActivity {
         projectNames = new ArrayList<>();
         projectNames.add("Scarne's Dice");
         projectNames.add("Schedule App");
+        projectNames.add("Infinite Kittens");
 
         listView = findViewById(R.id.projects_list);
 
@@ -41,6 +42,9 @@ public class ProjectsActivity extends AppCompatActivity {
                         break;
                     case 1:
                         intent = new Intent(ProjectsActivity.this, ScheduleActivity.class);
+                        break;
+                    case 2:
+                        intent = new Intent(ProjectsActivity.this, KittensActivity.class);
                         break;
                     default:
                         intent = new Intent(ProjectsActivity.this, MainActivity.class);

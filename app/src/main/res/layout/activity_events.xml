@@ -29,7 +29,4 @@
         android:text="Update Schedule"
         android:onClick="updateSchedule"
         />
-
-
-
 </LinearLayout>
