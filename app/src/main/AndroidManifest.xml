@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="ahn.spring2018">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -34,17 +34,32 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="ahn.spring2018.ProjectsActivity" />
         </activity>
-        <activity android:name=".EventsActivity"
+        <activity
+            android:name=".EventsActivity"
             android:label="Events">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="ahn.spring2018.ScheduleActivity" />
         </activity>
-        <activity android:name=".KittensActivity"
+        <activity
+            android:name=".KittensActivity"
             android:label="Infinite Kittens">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="ahn.spring2018.ProjectsActivity" />
+        </activity>
+        <activity
+            android:name=".FeedActivity"
+            android:label="MADGram">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="ahn.spring2018.ProjectsActivity" />
+        </activity>
+        <activity android:name=".ComposeActivity"
+            android:label="Compose Post">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="ahn.spring2018.FeedActivity" />
         </activity>
     </application>
 

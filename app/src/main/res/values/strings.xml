@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">Spring 2018</string>
+    <string name="image_preview">Image Preview</string>
+    <string name="upload_pic_description">Picture to upload</string>
+    <string name="caption_hint">Enter a caption…</string>
+    <string name="take_pic_button">Take picture</string>
+    <string name="upload_button">Upload</string>
+    <string name="compose_menu_title">Compose</string>
 </resources>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="ahn.spring2018.ComposeActivity"
+    android:orientation="vertical">
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:id="@+id/upload_pic"
+        android:layout_weight="1"
+        android:layout_gravity="center"
+        tools:src="@drawable/dice1"
+        android:contentDescription="@string/upload_pic_description"
+        android:padding="8dp"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/caption_edit_text"
+        android:hint="@string/caption_hint"
+        android:maxLines="3"
+        android:inputType="textCapSentences|textAutoCorrect|textMultiLine"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/take_pic_button"
+            android:layout_weight="1"
+            android:text="@string/take_pic_button"/>
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/upload_button"
+            android:layout_weight="1"
+            android:text="@string/upload_button"/>
+    </LinearLayout>
+
+</LinearLayout>
