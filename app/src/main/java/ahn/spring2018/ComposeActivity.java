@@ -16,7 +16,15 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
 import com.squareup.picasso.Picasso;
 
 import java.io.File;
@@ -36,6 +44,9 @@ public class ComposeActivity extends AppCompatActivity {
     private String caption;
     private String timeStamp;
 
+    private StorageReference storageReference = FirebaseStorage.getInstance().getReference();
+    private DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("data");
+
     private View.OnClickListener takePicListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
@@ -45,6 +56,40 @@ public class ComposeActivity extends AppCompatActivity {
                     getOutputMediaFile());
             intent.putExtra(MediaStore.EXTRA_OUTPUT, file);
             startActivityForResult(intent, 100);
+        }
+    };
+    
+    private View.OnClickListener uploadListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            caption = editText.getText().toString();
+            
+            if (!caption.equals("")) {
+                timeStamp = new SimpleDateFormat("MM\\dd\\yy hh:mm:ss:ss a").format(new Date());
+
+                Uri picture = file;
+
+                StorageReference stgRef = storageReference.child(USER_NAME + "/images/" + fileName);
+                stgRef.putFile(picture).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                    @Override
+                    public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                        String url = taskSnapshot.getDownloadUrl().toString();
+
+                        DatabaseReference dataRef = databaseReference.child(timeStamp);
+                        dataRef.child("caption").setValue(caption);
+                        dataRef.child("url").setValue(url);
+                        dataRef.child("user").setValue(USER_NAME);
+                        finish();
+                    }
+                }).addOnFailureListener(new OnFailureListener() {
+                            @Override
+                            public void onFailure(@NonNull Exception e) {
+                                Toast.makeText(ComposeActivity.this, "Upload failed", Toast.LENGTH_SHORT).show();
+                            }
+                        });
+            }
+            else
+                Toast.makeText(ComposeActivity.this, "Enter a caption", Toast.LENGTH_SHORT).show();
         }
     };
 
@@ -68,6 +113,9 @@ public class ComposeActivity extends AppCompatActivity {
             ActivityCompat.requestPermissions(this,
                     new String[] {Manifest.permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE},
                     0);
+        } else {
+            pictureButton.setOnClickListener(takePicListener);
+            uploadButton.setOnClickListener(uploadListener);
         }
     }
 
@@ -77,6 +125,8 @@ public class ComposeActivity extends AppCompatActivity {
             if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED
                     && grantResults[1] == PackageManager.PERMISSION_GRANTED) {
                 pictureButton.setEnabled(true);
+                pictureButton.setOnClickListener(takePicListener);
+                uploadButton.setOnClickListener(uploadListener);
             }
         }
     }
