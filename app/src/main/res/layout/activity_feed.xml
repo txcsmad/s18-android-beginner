@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#e6e6e6"
     tools:context="ahn.spring2018.FeedActivity">
 
     <android.support.v7.widget.RecyclerView

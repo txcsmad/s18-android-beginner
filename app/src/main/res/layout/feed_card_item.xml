@@ -1,56 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:padding="4dp"
-    app:cardElevation="2dp"
-    app:cardCornerRadius="2dp">
-
-    <LinearLayout
+    >
+    <android.support.v7.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:padding="4dp">
+        android:layout_height="wrap_content"
+        app:cardElevation="2dp"
+        app:cardCornerRadius="2dp">
 
-        <RelativeLayout
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1">
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="4dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/user_name"
+                    tools:text="User"
+                    android:textStyle="bold"
+                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/time_stamp"
+                    android:layout_alignParentEnd="true"
+                    tools:text="3/19/18 5:42"
+                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"/>
+            </RelativeLayout>
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:id="@+id/image_preview"
+                tools:src="@drawable/dice1"
+                android:layout_gravity="center"
+                android:scaleType="centerCrop"
+                android:contentDescription="@string/image_preview" />
+
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/user_name"
-                tools:text="User"
-                android:textStyle="bold"
-                android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
-                />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/time_stamp"
-                android:layout_alignParentEnd="true"
-                tools:text="3/19/18 5:42"
-                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"/>
-        </RelativeLayout>
-
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="150dp"
-            android:id="@+id/image_preview"
-            tools:src="@drawable/dice1"
-            android:layout_gravity="center"
-            android:scaleType="centerCrop"
-            android:contentDescription="@string/image_preview" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:id="@+id/caption_textview"
-            android:layout_weight="1"
-            android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
-            tools:text="Caption"
-            android:textColor="#333333"/>
-    </LinearLayout>
-</android.support.v7.widget.CardView>
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:id="@+id/caption_textview"
+                android:layout_weight="1"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                tools:text="Caption"
+                android:textColor="#333333"/>
+        </LinearLayout>
+    </android.support.v7.widget.CardView>
+</LinearLayout>

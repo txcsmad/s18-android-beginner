@@ -6,4 +6,8 @@
     <string name="take_pic_button">Take picture</string>
     <string name="upload_button">Upload</string>
     <string name="compose_menu_title">Compose</string>
+
+    <string name="title_activity_fullscreen">FullscreenActivity</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
 </resources>

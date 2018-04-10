@@ -4,8 +4,8 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
 
-    <uses-permission-sdk-23 android:name="android.permission.CAMERA"/>
-    <uses-permission-sdk-23 android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission-sdk-23 android:name="android.permission.CAMERA" />
+    <uses-permission-sdk-23 android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -52,15 +52,14 @@
                 android:value="ahn.spring2018.ProjectsActivity" />
         </activity>
 
-
         <provider
-            android:authorities="ahn.spring2018.fileprovider"
             android:name="android.support.v4.content.FileProvider"
+            android:authorities="ahn.spring2018.fileprovider"
             android:exported="false"
             android:grantUriPermissions="true">
             <meta-data
                 android:name="android.support.FILE_PROVIDER_PATHS"
-                android:resource="@xml/file_path"/>
+                android:resource="@xml/file_path" />
         </provider>
 
         <activity
@@ -70,12 +69,18 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="ahn.spring2018.ProjectsActivity" />
         </activity>
-        <activity android:name=".ComposeActivity"
+        <activity
+            android:name=".ComposeActivity"
             android:label="Compose Post">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="ahn.spring2018.FeedActivity" />
         </activity>
+        <activity
+            android:name=".FullscreenActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/title_activity_fullscreen"
+            android:theme="@style/FullscreenTheme"></activity>
     </application>
 
 </manifest>
