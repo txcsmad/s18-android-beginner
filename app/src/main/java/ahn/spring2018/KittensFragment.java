@@ -2,7 +2,7 @@ package ahn.spring2018;
 
 import android.content.Context;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
+import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -12,21 +12,21 @@ import android.widget.ImageView;
 
 import com.squareup.picasso.Picasso;
 
-public class KittensActivity extends AppCompatActivity {
+public class KittensFragment extends Fragment {
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_kittens);
-
-        setupRecyclerView();
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        View rootView = inflater.inflate(R.layout.fragment_kittens, container, false);
+        setupRecyclerView(rootView);
+        return rootView;
     }
 
-    private void setupRecyclerView() {
-        RecyclerView recyclerView = findViewById(R.id.kitten_recycler_view);
+    private void setupRecyclerView(View view) {
+        RecyclerView recyclerView = view.findViewById(R.id.kitten_recycler_view);
         recyclerView.setHasFixedSize(true);
 
-        LinearLayoutManager layoutManager = new LinearLayoutManager(this);
+        LinearLayoutManager layoutManager = new LinearLayoutManager(view.getContext());
         layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
 
         recyclerView.setLayoutManager(layoutManager);

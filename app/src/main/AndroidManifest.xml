@@ -31,22 +31,8 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ScheduleActivity"
-            android:label="Schedule">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="ahn.spring2018.ProjectsActivity" />
-        </activity>
-        <activity
             android:name=".EventsActivity"
             android:label="Events">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="ahn.spring2018.ScheduleActivity" />
-        </activity>
-        <activity
-            android:name=".KittensActivity"
-            android:label="Infinite Kittens">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="ahn.spring2018.ProjectsActivity" />
